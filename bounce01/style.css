@@ -1,5 +1,3 @@
-/* ========== 1. Variables (Light theme) ========== */
-/* ========== 1. Variables (Light theme: soft pink) ========== */
 :root {
   --bg: #fff5f9;
   --surface: #ffffff;
@@ -13,7 +11,6 @@
   --gradient: linear-gradient(135deg, var(--primary), var(--primary-2));
 }
 
-/* ========== 2. Dark theme (toggled by JavaScript) ========== */
 body.dark {
   --bg: #1f0f19;
   --surface: #2b1522;
@@ -26,7 +23,6 @@ body.dark {
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
 
-/* ========== 3. Reset & base ========== */
 *,
 *::before,
 *::after {
@@ -57,7 +53,6 @@ img {
   display: block;
 }
 
-/* ========== 4. Navbar ========== */
 .navbar {
   position: sticky;
   top: 0;
@@ -125,7 +120,6 @@ img {
   box-shadow: var(--shadow);
 }
 
-/* ========== 5. Sections (shared) ========== */
 section {
   padding: 5rem 8%;
   scroll-margin-top: 70px;
@@ -148,7 +142,6 @@ section {
   background: var(--gradient);
 }
 
-/* ========== 6. Buttons ========== */
 .btn {
   display: inline-block;
   padding: 0.8rem 2rem;
@@ -169,7 +162,6 @@ section {
   box-shadow: 0 14px 34px rgba(124, 77, 255, 0.35);
 }
 
-/* ========== 7. About ========== */
 #about {
   display: flex;
   align-items: center;
@@ -218,7 +210,6 @@ section {
   transform: scale(1.03);
 }
 
-/* ========== 8. Skills ========== */
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
@@ -242,7 +233,6 @@ section {
   color: #ffffff;
 }
 
-/* ========== 9. Projects ========== */
 .projects-grid {
   display: flex;
   flex-wrap: wrap;
@@ -284,7 +274,6 @@ section {
   text-decoration: underline;
 }
 
-/* ========== 10. Hobbies ========== */
 .hobbies-list {
   display: flex;
   flex-wrap: wrap;
@@ -319,7 +308,6 @@ section {
   color: var(--muted);
 }
 
-/* ========== 11. Contact form ========== */
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -373,7 +361,6 @@ section {
   color: var(--primary);
 }
 
-/* ========== 12. Footer ========== */
 footer {
   padding: 2rem 8%;
   text-align: center;
@@ -386,7 +373,6 @@ footer a {
   font-weight: 600;
 }
 
-/* ========== 13. Responsive (mobile) ========== */
 @media (max-width: 768px) {
   .navbar {
     flex-wrap: wrap;
@@ -426,7 +412,6 @@ footer a {
   }
 }
 
-/* ========== 14. Feminine touches ========== */
 h1,
 h2,
 h3,
@@ -454,7 +439,6 @@ body {
   box-shadow: 0 0 0 3px var(--primary-2), var(--shadow);
 }
 
-/* ========== 15. Bounce 01: Photo switcher ========== */
 .photo-box {
   display: flex;
   flex-direction: column;
@@ -490,7 +474,6 @@ body {
   color: #ffffff;
 }
 
-/* State used while the photo fades out and back in */
 #profile-photo.fade {
   opacity: 0;
   transform: scale(0.96);
