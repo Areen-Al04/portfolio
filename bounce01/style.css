@@ -1,0 +1,497 @@
+/* ========== 1. Variables (Light theme) ========== */
+/* ========== 1. Variables (Light theme: soft pink) ========== */
+:root {
+  --bg: #fff5f9;
+  --surface: #ffffff;
+  --nav-bg: rgba(255, 255, 255, 0.85);
+  --text: #4a2038;
+  --muted: #8a6478;
+  --primary: #e8579a;
+  --primary-2: #f783b8;
+  --border: #fbd5e5;
+  --shadow: 0 10px 30px rgba(232, 87, 154, 0.15);
+  --gradient: linear-gradient(135deg, var(--primary), var(--primary-2));
+}
+
+/* ========== 2. Dark theme (toggled by JavaScript) ========== */
+body.dark {
+  --bg: #1f0f19;
+  --surface: #2b1522;
+  --nav-bg: rgba(43, 21, 34, 0.85);
+  --text: #ffeef6;
+  --muted: #d4a3bb;
+  --primary: #f472b6;
+  --primary-2: #e0529c;
+  --border: #4a2438;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* ========== 3. Reset & base ========== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ========== 4. Navbar ========== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 8%;
+  background: var(--nav-bg);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.4s ease;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.8rem;
+  list-style: none;
+}
+
+.nav-links a {
+  position: relative;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--gradient);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+#theme-toggle {
+  padding: 0.5rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+/* ========== 5. Sections (shared) ========== */
+section {
+  padding: 5rem 8%;
+  scroll-margin-top: 70px;
+}
+
+.section-title {
+  position: relative;
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  margin: 0.6rem auto 0;
+  border-radius: 4px;
+  background: var(--gradient);
+}
+
+/* ========== 6. Buttons ========== */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--gradient);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px rgba(124, 77, 255, 0.35);
+}
+
+/* ========== 7. About ========== */
+#about {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  min-height: 85vh;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.about-text h2 {
+  margin: 0.5rem 0 1.2rem;
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+.about-text p {
+  max-width: 560px;
+  margin-bottom: 2rem;
+  color: var(--muted);
+}
+
+#profile-photo {
+  width: 300px;
+  height: 370px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 150px 150px 24px 24px;
+  border: 4px solid var(--surface);
+  box-shadow: var(--shadow);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+#profile-photo:hover {
+  transform: scale(1.03);
+}
+
+/* ========== 8. Skills ========== */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.skill-card {
+  padding: 0.9rem 1.8rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  font-weight: 600;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  background: var(--gradient);
+  color: #ffffff;
+}
+
+/* ========== 9. Projects ========== */
+.projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.project-card {
+  flex: 1 1 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1.8rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--primary);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+}
+
+.project-card h3 {
+  font-size: 1.2rem;
+}
+
+.project-card p {
+  flex: 1;
+  color: var(--muted);
+}
+
+.project-card a {
+  font-weight: 600;
+}
+
+.project-card a:hover {
+  text-decoration: underline;
+}
+
+/* ========== 10. Hobbies ========== */
+.hobbies-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.hobby-card {
+  flex: 1 1 200px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease;
+}
+
+.hobby-card:hover {
+  transform: translateY(-6px);
+}
+
+.hobby-icon {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-size: 2.6rem;
+}
+
+.hobby-card p {
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* ========== 11. Contact form ========== */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.8rem 1rem;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(124, 77, 255, 0.2);
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+#form-status {
+  min-height: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* ========== 12. Footer ========== */
+footer {
+  padding: 2rem 8%;
+  text-align: center;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+}
+
+footer a {
+  font-weight: 600;
+}
+
+/* ========== 13. Responsive (mobile) ========== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0.8rem 5%;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  section {
+    padding: 3.5rem 5%;
+  }
+
+  #about {
+    flex-direction: column-reverse;
+    text-align: center;
+    min-height: auto;
+  }
+
+  .about-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .about-text p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #profile-photo {
+    width: 240px;
+    height: 300px;
+    border-radius: 120px 120px 20px 20px;
+  }
+}
+
+/* ========== 14. Feminine touches ========== */
+h1,
+h2,
+h3,
+.logo {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+body {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(255, 154, 200, 0.28), transparent 40%),
+    radial-gradient(circle at 90% 35%, rgba(247, 131, 184, 0.2), transparent 40%),
+    var(--bg);
+  background-attachment: fixed;
+}
+
+.skill-card,
+.project-card,
+.hobby-card,
+.contact-form {
+  border-radius: 22px;
+}
+
+#profile-photo {
+  border: 5px solid var(--surface);
+  box-shadow: 0 0 0 3px var(--primary-2), var(--shadow);
+}
+
+/* ========== 15. Bounce 01: Photo switcher ========== */
+.photo-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.photo-switcher {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.35rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+}
+
+.photo-btn {
+  padding: 0.5rem 1.3rem;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.photo-btn.active {
+  background: var(--gradient);
+  color: #ffffff;
+}
+
+/* State used while the photo fades out and back in */
+#profile-photo.fade {
+  opacity: 0;
+  transform: scale(0.96);
+}
