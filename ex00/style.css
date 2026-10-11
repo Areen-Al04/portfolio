@@ -438,3 +438,35 @@ body {
   border: 5px solid var(--surface);
   box-shadow: 0 0 0 3px var(--primary-2), var(--shadow);
 }
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  list-style: none;
+}
+
+.social-links a {
+  display: inline-block;
+  padding: 0.45rem 1.1rem;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+
+.social-links a:hover {
+  color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 768px) {
+  .social-links {
+    justify-content: center;
+  }
+}
