@@ -16,11 +16,24 @@ themeToggle.addEventListener("click", function () {
   localStorage.setItem("theme", newTheme);
 });
 
+const RECIPIENT = "areen.alakaleek4@gmail.com";
+
 contactForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
   const name = document.getElementById("name").value.trim();
-  formStatus.textContent = "Thank you, " + name + "! Your message has been received. 💌";
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  const subject = "Portfolio contact from " + name;
+  const mailBody = message + "\n\nFrom: " + name + " (" + email + ")";
+
+  window.location.href =
+    "mailto:" + RECIPIENT +
+    "?subject=" + encodeURIComponent(subject) +
+    "&body=" + encodeURIComponent(mailBody);
+
+  formStatus.textContent = "Thank you, " + name + "! Opening your email app... 💌";
   contactForm.reset();
 
   setTimeout(function () {
